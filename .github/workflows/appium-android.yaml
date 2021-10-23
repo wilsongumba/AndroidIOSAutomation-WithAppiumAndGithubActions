@@ -39,7 +39,6 @@ jobs:
         profile: Nexus 6
         script: mvn clean test -Pandroid
     - name: 'Upload artifacts'
-      uses: ./
       with:
         name: 'Cucumber HTML Report'
-        path: /target/cucumber-html-report.html
+        path: /Users/runner/work/AndroidIOSAutomation-WithAppiumAndGithubActions/target/cucumber-html-report.html
