@@ -26,6 +26,7 @@ jobs:
             appium &>/dev/null &
             mvn clean test -PiOS
     - name: 'Upload artifacts'
+      uses: ./
       with:
         name: 'Cucumber HTML Report ios'
-        path: Users/runner/work/AndroidIOSAutomation-WithAppiumAndGithubActions/target/cucumber-html-report.html
+        path: target/cucumber-html-report.html
