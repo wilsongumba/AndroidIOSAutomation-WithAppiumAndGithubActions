@@ -38,8 +38,7 @@ jobs:
         arch: x86_64
         profile: Nexus 6
         script: mvn clean test -Pandroid
-    - name: 'Upload artifacts'
-      uses: ./
+    - uses: actions/upload-artifact@v2
       with:
         name: 'Cucumber HTML Report'
-        path: Users/runner/work/AndroidIOSAutomation-WithAppiumAndGithubActions/target/cucumber-html-report.html
+        path: /target/cucumber-html-report.html
