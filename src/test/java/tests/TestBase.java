@@ -15,7 +15,7 @@ public class TestBase extends AbstractTestNGCucumberTests {
 
     public static void Android_setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformVersion", " 7.1");
+        capabilities.setCapability("platformVersion", " 10.0");
         capabilities.setCapability("deviceName", "Android Emulator");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("app",
@@ -26,9 +26,9 @@ public class TestBase extends AbstractTestNGCucumberTests {
     public void iOS_setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "iOS");
-        capabilities.setCapability("deviceName", "iPhone X");
+        capabilities.setCapability("deviceName", "iPhone 11 Pro Max");
         capabilities.setCapability("automationName","XCUITest");
-        capabilities.setCapability("isHeadless",true);
+        capabilities.setCapability("isHeadless",false);
         capabilities.setCapability("showXcodeLog",true);
         capabilities.setCapability("app",
                 System.getProperty("user.dir") + "/apps/DailyCheck.zip");
