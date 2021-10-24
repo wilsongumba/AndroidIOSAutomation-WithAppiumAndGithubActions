@@ -1,7 +1,8 @@
-package steps;
+package steps.AndroidTests;
 
 import PageObjects.CreateTaskPage;
 import PageObjects.TasksListPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,11 +10,12 @@ import tests.TestBase;
 
 import java.net.MalformedURLException;
 
-public class CreateNewTask extends TestBase {
+public class CreateNewTaskWithDataAndroid extends TestBase {
+
     CreateTaskPage createTaskPage;
     TasksListPage tasksListPage;
 
-    @Given("Click Add new Task")
+    @Given("Click add new Task - Android")
     public void clickAddNewTask() throws MalformedURLException {
         Android_setUp();
         tasksListPage = new TasksListPage(driver);
@@ -21,22 +23,18 @@ public class CreateNewTask extends TestBase {
         tasksListPage.clickAddTaskBtn();
     }
 
-    @Given("Enter TaskName")
-    public void enterTaskName() {
-        createTaskPage.enterTaskName("Task 1");
+    @Given("Enter {string} and {string} - Android")
+    public void enterAnd(String taskName, String taskDesc) {
+        createTaskPage.enterTaskName(taskName);
+        createTaskPage.enterTaskDesc(taskDesc);
     }
 
-    @Given("Enter TaskDesc")
-    public void enterTaskDesc() {
-        createTaskPage.enterTaskDesc("Desc 1");
-    }
-
-    @When("Click Save")
-    public void clickSave() {
+    @And("Click Save Button - Android")
+    public void clickSaveButton() {
         createTaskPage.clickSaveBtn();
     }
 
-    @Then("Task added successfully")
+    @Then("Task Added Successfully - Android")
     public void taskAddedSuccessfully() {
         driver.hideKeyboard();
         tearDown();

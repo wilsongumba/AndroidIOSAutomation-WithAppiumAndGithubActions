@@ -18,17 +18,18 @@ public class TestBase extends AbstractTestNGCucumberTests {
         capabilities.setCapability("platformVersion", " 10.0");
         capabilities.setCapability("deviceName", "Android Emulator");
         capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("isHeadless",true);
         capabilities.setCapability("app",
                 System.getProperty("user.dir") + "/apps/ToDo.apk");
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
     }
 
-    public void iOS_setUp() throws MalformedURLException {
+    public static void iOS_setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("deviceName", "iPhone 11 Pro Max");
         capabilities.setCapability("automationName","XCUITest");
-        capabilities.setCapability("isHeadless",false);
+        capabilities.setCapability("isHeadless",true);
         capabilities.setCapability("showXcodeLog",true);
         capabilities.setCapability("app",
                 System.getProperty("user.dir") + "/apps/DailyCheck.zip");
